@@ -39,25 +39,25 @@ export default function App() {
                 cost={expenses[0].cost}
                 currency={expenses[0].currency}
                 date={expenses[0].date}
-            ></ExpenseItem>
+            />
             <ExpenseItem
                 title={expenses[1].title}
                 cost={expenses[1].cost}
                 currency={expenses[1].currency}
                 date={expenses[1].date}
-            ></ExpenseItem>
+            />
             <ExpenseItem
                 title={expenses[2].title}
                 cost={expenses[2].cost}
                 currency={expenses[2].currency}
                 date={expenses[2].date}
-            ></ExpenseItem>
+            />
             <ExpenseItem
                 title={expenses[3].title}
                 cost={expenses[3].cost}
                 currency={expenses[3].currency}
                 date={expenses[3].date}
-            ></ExpenseItem>
+            />
         </div>
     );
 }
