@@ -1,19 +1,19 @@
-import './ExpenseDate.css';
-const ExpenseDate = (props) => {
-    let day = props.date.toLocaleString('en-GB', {
-        day: 'numeric',
-        weekday: 'long',
-    });
-    let month = props.date.toLocaleString('en-GB', { month: 'long' });
-    let year = props.date.toLocaleString('en-GB', { year: 'numeric' });
+import React from 'react';
 
-    return (
-        <div className="expense-date">
-            <div className="expense-date__day">{day}</div>
-            <div className="expense-date__month">{month}</div>
-            <div className="expense-date__year">{year}</div>
-        </div>
-    );
+import './ExpenseDate.css';
+
+const ExpenseDate = (props) => {
+  const month = props.date.toLocaleString('en-US', { month: 'long' });
+  const day = props.date.toLocaleString('en-US', { day: '2-digit' });
+  const year = props.date.getFullYear();
+
+  return (
+    <div className='expense-date'>
+      <div className='expense-date__month'>{month}</div>
+      <div className='expense-date__year'>{year}</div>
+      <div className='expense-date__day'>{day}</div>
+    </div>
+  );
 };
 
 export default ExpenseDate;

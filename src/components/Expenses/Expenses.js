@@ -1,36 +1,44 @@
+import React, { useState } from 'react';
+
 import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card';
+import ExpensesFilter from './ExpensesFilter';
 import './Expenses.css';
+
 const Expenses = (props) => {
-    return (
-        <Card className="expenses">
-            <h2>Let's get started!</h2>
-            <ExpenseItem
-                title={props.expenses[0].title}
-                cost={props.expenses[0].cost}
-                currency={props.expenses[0].currency}
-                date={props.expenses[0].date}
-            />
-            <ExpenseItem
-                title={props.expenses[1].title}
-                cost={props.expenses[1].cost}
-                currency={props.expenses[1].currency}
-                date={props.expenses[1].date}
-            />
-            <ExpenseItem
-                title={props.expenses[2].title}
-                cost={props.expenses[2].cost}
-                currency={props.expenses[2].currency}
-                date={props.expenses[2].date}
-            />
-            <ExpenseItem
-                title={props.expenses[3].title}
-                cost={props.expenses[3].cost}
-                currency={props.expenses[3].currency}
-                date={props.expenses[3].date}
-            />
-        </Card>
-    );
+  const [filteredYear, setFilteredYear] = useState('2020');
+
+  const filterChangeHandler = selectedYear => {
+    setFilteredYear(selectedYear);
+  };
+
+  return (
+    <div>
+      <Card className='expenses'>
+        <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+        <ExpenseItem
+          title={props.items[0].title}
+          amount={props.items[0].amount}
+          date={props.items[0].date}
+        />
+        <ExpenseItem
+          title={props.items[1].title}
+          amount={props.items[1].amount}
+          date={props.items[1].date}
+        />
+        <ExpenseItem
+          title={props.items[2].title}
+          amount={props.items[2].amount}
+          date={props.items[2].date}
+        />
+        <ExpenseItem
+          title={props.items[3].title}
+          amount={props.items[3].amount}
+          date={props.items[3].date}
+        />
+      </Card>
+    </div>
+  );
 };
 
 export default Expenses;
