@@ -27,8 +27,16 @@ const initialExpenses = [
 
 const App = () => {
     const [expenses, setExpenses] = useState(initialExpenses);
+    const [filteredExpenses, setFilteredExpenses] = useState(expenses);
     const addExpenseHandler = (expense) => {
         setExpenses((prevExpenses) => [expense, ...prevExpenses]);
+    };
+    const filterExpensesHandler = (neededDate) => {
+        setFilteredExpenses(
+            expenses.filter(
+                (element) => element.date.getFullYear() === +neededDate
+            )
+        );
     };
 
     // return React.createElement(
@@ -41,7 +49,10 @@ const App = () => {
     return (
         <div>
             <NewExpense onAddExpense={addExpenseHandler} />
-            <Expenses items={expenses} />
+            <Expenses
+                items={filteredExpenses}
+                onFilterExpenses={filterExpensesHandler}
+            />
         </div>
     );
 };
