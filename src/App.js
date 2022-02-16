@@ -27,7 +27,9 @@ const initialExpenses = [
 
 const App = () => {
     const [expenses, setExpenses] = useState(initialExpenses);
-    const [filteredExpenses, setFilteredExpenses] = useState(expenses);
+    const [filteredExpenses, setFilteredExpenses] = useState(
+        expenses.filter((expense) => expense.date.getFullYear() === 2020)
+    );
     const addExpenseHandler = (expense) => {
         setExpenses((prevExpenses) => [expense, ...prevExpenses]);
     };
